@@ -45,7 +45,7 @@ export default class Exports extends Component {
 
   render() {
     return (
-      <div style={{ background: '#ECECEC', padding: '30px' }}>
+      <div style={{ height: '100vh', background: '#ECECEC', padding: '30px' }}>
         <Row gutter={16}>
           { this.displayExports() }
         </Row>

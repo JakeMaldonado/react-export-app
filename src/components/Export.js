@@ -22,7 +22,7 @@ const graphs = [
     <Steps>
       <Step status="finish" title="Exporting" icon={<Icon type="user" />} />
       <Step status="finish" title="Verifying" icon={<Icon type="solution" />} />
-      <Step status="finish" title="Done" icon={<Icon type="smile-o" />} />
+      <Step status="finish" title="Done" icon={<Icon type="smile-o" theme="twoTone" twoToneColor="#52c41a" />} />
     </Steps>
   )
 ]
