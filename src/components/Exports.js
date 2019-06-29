@@ -2,37 +2,17 @@ import React, { Component } from 'react'
 import { Col, Row } from 'antd';
 import Export from './Export';
 
-
-const cardData = [
-  {
-    title: "Some export",
-    index: 0,
-    inProgress: true
-  },
-  {
-    title: "My second export",
-    index: 1,
-    inProgress: true
-  },
-  {
-    title: "Wow this things awesome",
-    index: 2,
-    inProgress: false
-  }
-]
-
 export default class Exports extends Component {
-  
   displayExports = () => {
+    const scrapeData = this.props.scrapes
     const rows = [];
-    const rowCount = Math.floor(cardData.length / 3);
-    console.log(rowCount)
-  
+    const rowCount = Math.ceil(scrapeData.length / 3);
+
     for (let i = 0; i < rowCount; i++) {
-      const cols = cardData.map(card => {
+      const cols = scrapeData.map(scrape => {
         return (
           <Col span={8}>
-            <Export title={card.title} inProgress={card.inProgress} index={card.index}  /> 
+            <Export title={scrape.scrapeTitle} profileName={scrape.profileName} inProgress={scrape.inProgress} index={scrape.index} profileImageSrc={scrape.profileImageSrc} followers={scrape.followers} toScrape={scrape.toScrape} /> 
           </Col>
         )
       });
