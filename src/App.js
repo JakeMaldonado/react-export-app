@@ -1,4 +1,6 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 import 'antd/dist/antd.css';
 import './index.css';
 
@@ -17,10 +19,14 @@ const sampleScrapes = [{
 
 function App() {
   return (
-    <div className="App">
+    <Router>
       <Nav />
-      <Exports scrapes={sampleScrapes} />
-    </div>
+      <Switch>
+        <div className="App">
+          <Exports scrapes={sampleScrapes} />
+        </div>
+      </Switch>
+    </Router>
   );
 }
 

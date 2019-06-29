@@ -17,12 +17,17 @@ const cardStyle = {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
-  minHeight: '100px'
+  minHeight: '100px',
 }
 
 const buttonStyle = {
+  height: '100%',
+  marginBottom: '10px',
+  borderLeft: '1px #d9d9d9 solid',
   display: 'flex',
-  justifyContent: 'space-around'
+  flexDirection: 'column',
+  justifyContent: 'space-around',
+  paddingLeft: '20px',
 }
 
 const heroStyle = {
@@ -40,6 +45,12 @@ const statsStyle = {
   width: '100%'
 }
 
+const lowerStyle = {
+  marginTop: '20px',
+  display: 'flex',
+  justifyContent: 'space-around'
+}
+
 export default class Export extends Component {
   steps = () => {
     return (
@@ -54,26 +65,28 @@ export default class Export extends Component {
   render() {
     return (
       <Card title={ this.props.title } bordered={false} style={ cardStyle }>
-        <div style={heroStyle}>
-          <Avatar size={64} src={this.props.profileImageSrc} />
-          <h2>{this.props.profileName}</h2>
-          <div style={statsStyle}>
-            <Statistic title="Followers" value={this.props.followers} prefix={<Icon type="team" />} />
-            <Statistic title="Scraping" value={this.props.toScrape} suffix={'/ ' + this.props.followers} />
+        { graphs[this.props.index] }
+        <div style={lowerStyle}>
+          <div style={heroStyle}>
+            <Avatar size={64} src={this.props.profileImageSrc} />
+            <h2>{this.props.profileName}</h2>
+            <div style={statsStyle}>
+              <Statistic title="Followers" value={this.props.followers} prefix={<Icon type="team" />} />
+              <Statistic title="Scraping" value={this.props.toScrape} suffix={'/ ' + this.props.followers} />
+            </div>
           </div>
-        </div>
-        <div style={cardStyle}>
-          { graphs[this.props.index] }
-          <div style={buttonStyle}>
-            <Button type="primary" icon="download" size="small" disabled={this.props.inProgress}>
-              Download
-            </Button>
-            <Button type="primary" icon="export" size="small" disabled={this.props.inProgress}>
-              Export
-            </Button>
-            <Button type="primary" icon="eye" size="small" disabled={this.props.inProgress}>
-              View
-            </Button>
+          <div style={cardStyle}>
+            <div style={buttonStyle}>
+              <Button type="primary" icon="eye" size="small" disabled={this.props.inProgress}>
+                View
+              </Button>
+              <Button type="primary" icon="usergroup-add" size="small" disabled={this.props.inProgress}>
+                Follow All
+              </Button>
+              <Button type="primary" icon="download" size="small" disabled={this.props.inProgress}>
+                Download
+              </Button>
+            </div>
           </div>
         </div>
       </Card>
